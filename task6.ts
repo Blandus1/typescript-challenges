@@ -22,9 +22,7 @@ type ChatMessage = TextMessage | ImageMessage | VideoMessage;
 function formatMessage (message: ChatMessage): string{
 switch (message.type){
     case "text":return("Text: " + message.content);
-    break;
-    case "image": return("Image [" + message.caption + "]: " + message.url || "Image : " + message.url);
-    break;
+    case "image": return( message.caption?  "Image [" + message.caption + "]: " + message.url : "Image: " + message.url);
     case "video": return ("Video (" + message.duration + "s): " + message.url);
     default: return("Operation failed.")
 }

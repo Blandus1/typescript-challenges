@@ -2,12 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 function formatMessage(message) {
     switch (message.type) {
-        case "text":
-            return ("Text: " + message.content);
-            break;
-        case "image":
-            return ("Image [" + message.caption + "]: " + message.url || "Image : " + message.url);
-            break;
+        case "text": return ("Text: " + message.content);
+        case "image": return (message.caption ? "Image [" + message.caption + "]: " + message.url : "Image: " + message.url);
         case "video": return ("Video (" + message.duration + "s): " + message.url);
         default: return ("Operation failed.");
     }
